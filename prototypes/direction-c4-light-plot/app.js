@@ -56,7 +56,7 @@
   /* ---------- scaffolding: header, spot, blackout ---------- */
   var navItems = [['home', 'index.html', 'Works'], ['about', 'about.html', 'About'], ['students', 'students.html', 'Students'], ['contact', 'about.html#contact', 'Contact']];
   var hd = el('header', 'hd',
-    '<a class="mark" href="index.html">' + esc(SITE.name) + '<small>' + esc(SITE.role) + '</small></a>' +
+    '<a class="mark" href="index.html">' + esc(SITE.name) + '</a>' /* PROTOTYPE (Ivan 2026-10-22): no "stage designer" label */ +
     '<nav class="nav" aria-label="Main">' + navItems.map(function (n) {
       return '<a href="' + n[1] + '"' + (n[0] === page ? ' aria-current="page"' : '') + '>' + n[2] + '</a>';
     }).join('') + '</nav>' +
@@ -158,7 +158,7 @@
     var items = [], yrEls = [], cur = null, lastIdx = 0, tapUntil = 0;
 
     /* --- stage --- */
-    var hero = el('div', 'hero', '<h1>' + esc(SITE.name) + '</h1><p>' + esc(SITE.role) + ' · ' + WORKS.length + ' works · ' + yMin + '–' + yMax + '</p>');
+    var hero = el('div', 'hero', '<h1>' + esc(SITE.name) + '</h1>' /* PROTOTYPE (Ivan 2026-10-22): no label, works count or year range */);
     stage.appendChild(hero);
     var zs = [1, .6, .82, .55, .92, .7, .64, .98, .76, .58]; // PROTOTYPE: depth of each plane; 1 = downstage (closest), .55 = far back
     WORKS.forEach(function (w, i) {
@@ -302,7 +302,7 @@
       });
       fEl.querySelectorAll('.chip').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.g === gen ? 'true' : 'false'); });
       colsEl.querySelectorAll('button').forEach(function (b) { var on = b.dataset.k === sort.k; b.dataset.on = on ? 1 : 0; b.dataset.dir = sort.dir > 0 ? '↑' : '↓'; });
-      list.querySelector('.count').textContent = rows.length + (gen === 'all' ? ' works · ' + yMin + '–' + yMax : ' of ' + WORKS.length + ' works · ' + gen);
+      list.querySelector('.count').textContent = gen === 'all' ? '' : gen; // no works count or year range (Ivan)
       list.querySelector('.rows').innerHTML = rows.map(function (w) {
         var c = cover(w);
         return '<a class="row" href="' + url(w) + '"><span class="th"><img src="' + c.src + '" alt="" loading="lazy"' + (cropOf(w) ? ' style="object-view-box:' + viewBox(cropOf(w)) + '"' : '') + '></span>' +
