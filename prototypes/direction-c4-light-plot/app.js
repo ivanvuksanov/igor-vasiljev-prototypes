@@ -158,8 +158,7 @@
     var items = [], yrEls = [], cur = null, lastIdx = 0, tapUntil = 0;
 
     /* --- stage --- */
-    var hero = el('div', 'hero', '<h1>' + esc(SITE.name) + '</h1>' /* PROTOTYPE (Ivan 2026-10-22): no label, works count or year range */);
-    stage.appendChild(hero);
+    // PROTOTYPE (Ivan 2026-10-22): no big name on the stage; the header carries it.
     var zs = [1, .6, .82, .55, .92, .7, .64, .98, .76, .58]; // PROTOTYPE: depth of each plane; 1 = downstage (closest), .55 = far back
     WORKS.forEach(function (w, i) {
       var c = cover(w), z = zs[(i * 3 + 1) % zs.length];
