@@ -70,7 +70,7 @@
   }
 
   function home() {
-    main.appendChild(el('<h1 class="title">Works</h1>'));
+    main.appendChild(el('<h1 class="title works-title">Works</h1>'));
     split(W.map(function (w) { return { w: w, img: lead(w) }; }));
   }
 
@@ -214,7 +214,7 @@
       var a = el('<a href="#' + p.id + '">' + p.firstChild.textContent.replace(' – ', '–') + '</a>');
       a.addEventListener('click', function (e) {
         e.preventDefault();
-        var pb = document.querySelector('.pbar'); window.scrollTo({ top: p.getBoundingClientRect().top + scrollY - top.offsetHeight - (pb ? pb.offsetHeight : 0) - 4, behavior: 'smooth' });
+        var pb = document.querySelector('.pbar'), th = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--title-h')) || 0; window.scrollTo({ top: p.getBoundingClientRect().top + scrollY - top.offsetHeight - th - (pb ? pb.offsetHeight : 0) - 4, behavior: 'smooth' });
       });
       bar.appendChild(a);
     });
@@ -237,6 +237,11 @@
     ol.insertBefore(bar, ol.firstChild);
     var lbl = bar.querySelector('.lbl'), back = bar.querySelector('[data-go="-1"]'), next = bar.querySelector('[data-go="1"]'), cur = 0;
     function sync() { document.documentElement.style.setProperty('--top-h', top.offsetHeight + 'px'); }
+    // "Works" shrinks once the page scrolls and stays stuck above the bar (its small height: --title-h in CSS)
+    var title = document.querySelector('.works-title');
+    function titleH() { return parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--title-h')) || 0; }
+    function shrink() { title.classList.toggle('small', scrollY > 24); }
+    addEventListener('scroll', shrink, { passive: true }); shrink();
     function mark() {
       var line = bar.getBoundingClientRect().bottom + 12, k = 0;
       rows.forEach(function (r) { if (r.getBoundingClientRect().top <= line) k = names.indexOf(r.dataset.p); });
@@ -246,7 +251,7 @@
       var b = e.target.closest('[data-go]'); if (!b) return;
       var p = names[cur + +b.dataset.go]; if (!p) return;
       var first = rows.filter(function (r) { return r.dataset.p === p; })[0];
-      var to = cur + +b.dataset.go === 0 ? 0 : first.getBoundingClientRect().top + scrollY - top.offsetHeight - bar.offsetHeight;
+      var to = cur + +b.dataset.go === 0 ? 0 : first.getBoundingClientRect().top + scrollY - top.offsetHeight - titleH() - bar.offsetHeight;
       window.scrollTo({ top: to, behavior: 'smooth' });
     });
     sync(); addEventListener('resize', sync);

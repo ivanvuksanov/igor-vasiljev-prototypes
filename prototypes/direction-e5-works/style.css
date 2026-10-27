@@ -342,7 +342,7 @@ h1.title + .split, h1.title + .strip-wrap { padding-top: 28px; }
 
 /* ---- E5: one sticky period bar with back / next arrows ---- */
 .sel li.period { height: 0; padding: 0; margin: 0; border: 0; overflow: hidden; }   /* invisible jump anchors */
-.sel li.pbar { position: sticky; top: var(--top-h, 44px); z-index: 3; background: var(--bg); display: flex; justify-content: space-between; align-items: center; padding: 0 0 10px; border-bottom: 1px solid var(--fg); font-size: clamp(26px, 2.6vw, 36px); line-height: 1; }
+.sel li.pbar { position: sticky; top: calc(var(--top-h, 44px) + var(--title-h)); z-index: 3; background: var(--bg); display: flex; justify-content: space-between; align-items: center; padding: 0 0 10px; border-bottom: 1px solid var(--fg); font-size: clamp(26px, 2.6vw, 36px); line-height: 1; }
 [data-name="5"] .sel li.pbar { font: 500 clamp(18px, 1.6vw, 22px)/1 "IBM Plex Mono", monospace; letter-spacing: .04em; }
 .sel .go { display: flex; gap: 6px; }
 .sel .go button { font: 400 22px/1 var(--serif); background: none; border: 1px solid var(--fg); color: var(--fg); width: 34px; height: 30px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
@@ -352,3 +352,15 @@ h1.title + .split, h1.title + .strip-wrap { padding-top: 28px; }
 @media (max-width: 760px) {
   .sel li.pbar { padding-top: 8px; margin-bottom: 20px; }
 }
+
+/* "Works": full size at the top; once scrolled it shrinks to a small label and stays stuck above the period bar */
+:root { --title-h: 34px; }
+h1.works-title { position: sticky; top: var(--top-h, 44px); z-index: 4; background: var(--bg); transition: font-size .25s ease, padding .25s ease; }
+[data-name="5"] h1.works-title { padding-bottom: 12px; }
+h1.works-title.small, [data-name="5"] h1.works-title.small { font-size: 15px; line-height: 1; padding-top: 8px; padding-bottom: 11px; height: var(--title-h); color: var(--dim); }
+.view { top: calc(var(--top-h, 44px) + var(--title-h) + 8px); }
+/* period bar closer to the Works label */
+:root { --title-h: 24px; }
+h1.works-title.small, [data-name="5"] h1.works-title.small { padding-top: 6px; padding-bottom: 3px; }
+h1.works-title + .split { padding-top: 6px; }
+[data-name="5"] h1.works-title { padding-bottom: 0; }
