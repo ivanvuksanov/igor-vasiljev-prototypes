@@ -5,56 +5,46 @@
 <meta name="robots" content="noindex,nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Igor Vasiljev: website directions</title>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400;62..125,800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
-  :root { --bg:#0b0b0b; --fg:#f2f0eb; --dim:#8a8781; --line:#2a2a2a; }
+  :root { --bg:#fff; --fg:#121212; --dim:#9a9a9a; --line:#d8d8d8; --serif:"Times New Roman", Times, serif; --mono:"IBM Plex Mono", monospace; }
   * { box-sizing:border-box; margin:0; }
-  body { background:var(--bg); color:var(--fg); font:16px/1.5 Archivo, sans-serif; padding:56px 32px 96px; max-width:1280px; margin:0 auto; }
-  h1 { font-weight:800; font-stretch:70%; font-size:clamp(48px,8vw,104px); line-height:.9; text-transform:uppercase; }
-  .sub { font:13px/1.7 'JetBrains Mono', monospace; color:var(--dim); margin:20px 0 56px; max-width:62ch; }
-  .dir { border-top:1px solid var(--line); padding:32px 0 44px; display:grid; grid-template-columns:minmax(240px,1fr) 2fr; gap:40px; align-items:start; }
-  .dir h2 { font-weight:800; font-stretch:70%; font-size:44px; line-height:1; text-transform:uppercase; }
-  .dir p { color:var(--dim); margin-top:14px; font-size:15px; max-width:42ch; }
-  .dir p b { color:var(--fg); font-weight:400; }
-  .open { display:inline-block; margin-top:18px; color:var(--fg); font:12px/1 'JetBrains Mono', monospace; text-transform:uppercase; letter-spacing:.08em; text-decoration:none; border-bottom:1px solid var(--fg); padding-bottom:4px; }
+  body { background:var(--bg); color:var(--fg); font:16px/1.4 var(--serif); padding:48px 32px 96px; max-width:1280px; margin:0 auto; }
+  h1 { font:500 clamp(28px,4vw,44px)/1.1 var(--mono); letter-spacing:.02em; text-transform:uppercase; }
+  .sub { color:var(--dim); margin:18px 0 48px; max-width:62ch; }
+  .dir { border-top:1px solid var(--fg); padding:28px 0 44px; display:grid; grid-template-columns:minmax(240px,1fr) 2fr; gap:40px; align-items:start; }
+  .dir h2 { font:500 22px/1.2 var(--mono); letter-spacing:.02em; text-transform:uppercase; }
+  .dir p { color:#555; margin-top:14px; max-width:42ch; }
+  .open { display:inline-block; margin-top:18px; color:var(--fg); font:500 13px/1 var(--mono); text-transform:uppercase; letter-spacing:.06em; text-decoration:none; border-bottom:1px solid var(--fg); padding-bottom:4px; }
   .shot { display:block; }
   .shot img { width:100%; display:block; border:1px solid var(--line); }
   .shot:hover img { border-color:var(--fg); }
-  .note { font:12px/1.7 'JetBrains Mono', monospace; color:var(--dim); margin-top:56px; border-top:1px solid var(--line); padding-top:24px; max-width:70ch; }
+  .note { color:var(--dim); margin-top:40px; border-top:1px solid var(--line); padding-top:20px; max-width:70ch; }
   @media (max-width:760px) { body { padding:32px 16px 64px; } .dir { grid-template-columns:1fr; gap:20px; } }
 </style>
 </head>
 <body>
   <h1>Igor Vasiljev<br>website directions</h1>
-  <p class="sub">Early prototypes, built on the work, photos and texts from web-stage.org. Texts for each work and the student page are still placeholders. Not public: please don't share the link.</p>
+  <p class="sub">Prototypes built on the works, photos and credits from web-stage.org. Texts for each work aren't written yet. Not public: please don't share the link.</p>
 
   <section class="dir">
     <div>
-      <h2>1 · The field</h2>
-      <p>Every photograph of every production as a small tile. Hover one and it comes forward while the rest go dark. <b>Photos / Works / List</b> and <b>Ordered / Shuffled</b> at the bottom; the sun and moon switch light and dark.</p>
-      <a class="open" href="direction-a9-field/index.html">Open →</a>
+      <h2>1 · Featured + archive</h2>
+      <p>The home page shows ten featured projects: the list on the left, the photos on the right. Hover a title to see its photos; click it to open the credits. All works are on a separate Archive page, grouped by period.</p>
+      <a class="open" href="direction-e2-archive/index.html">Open →</a>
     </div>
-    <a class="shot" href="direction-a9-field/index.html"><img src="previews/field.jpg" alt="The field: all photographs as small tiles"></a>
+    <a class="shot" href="direction-e2-archive/index.html"><img src="previews/featured.jpg" alt="Featured projects: list on the left, photos on the right"></a>
   </section>
 
   <section class="dir">
     <div>
-      <h2>2 · Light plot</h2>
-      <p>The page is a dark stage and the cursor is a follow-spot. It finds a production and lights it; its title appears in large type, like words projected on a set.</p>
-      <a class="open" href="direction-c4-light-plot/index.html">Open →</a>
+      <h2>2 · All works, one list</h2>
+      <p>One page with every work, newest first. The period stays at the top of the list as you scroll; the arrows jump to the previous or next period. Photos on the right, credits open in place.</p>
+      <a class="open" href="direction-e5-works/index.html">Open →</a>
     </div>
-    <a class="shot" href="direction-c4-light-plot/index.html"><img src="previews/light.jpg" alt="Light plot: a follow-spot on one production"></a>
+    <a class="shot" href="direction-e5-works/index.html"><img src="previews/works.jpg" alt="All works: one list with the period on top"></a>
   </section>
 
-  <section class="dir">
-    <div>
-      <h2>3 · Playground</h2>
-      <p>For students: build a new stage from pieces of past productions (surfaces, frames, facades, objects, light, words). Every piece is credited to the work it comes from.</p>
-      <a class="open" href="direction-d2-collage/playground.html?back=../index.html">Open →</a>
-    </div>
-    <a class="shot" href="direction-d2-collage/playground.html?back=../index.html"><img src="previews/playground.jpg" alt="Playground: a stage built from pieces of past productions"></a>
-  </section>
-
-  <p class="note">The small options tabs in the corners ("Prototype options", "Explore") are for comparing variants: menu position, background colour, control style, spotlight colour. Try them freely.</p>
+  <p class="note">The small switches at the bottom left are for comparing options: the font of the name (Mono is our pick), and the layout of some pages (home page, archive, a single work). Try them freely.</p>
 </body>
 </html>
